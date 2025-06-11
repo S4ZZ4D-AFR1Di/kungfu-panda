@@ -1,0 +1,104 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2b3738;
+}
+.card {
+    position:relative;
+    height: 400px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 30px #041f05;
+}
+.card::after {
+    content: "Don't hover Me!";
+    position: absolute;
+    top:55px;
+    right: -40px;
+    background-color: #d11616;
+    color:#fff;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: text 5s infinite;
+}
+@keyframes text {
+    50% {
+        transform: translateY(-30px);
+    }
+    0%,100% {
+        transform: translateY(30px);
+    }
+}
+.imgBox {
+    position: absolute;
+    inset: 0;
+    background-color: #0e874c;
+    border-radius: 20px;
+}
+.imgBox img {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    top:20px;
+    left: 0;
+    object-fit: cover;
+    transition: .5s;
+}
+.card:hover .imgBox img {
+    opacity: 0;
+}
+.card:hover .imgBox {
+    background-color: #ef3232;
+    transition: .3s;
+    transform: perspective(15px) rotateX(2deg) translateY(-70px);
+    box-shadow: 5px 5px 20px #940e0e;
+}
+.card:hover {
+    cursor: pointer;
+    background: #2b3738;
+    box-shadow: 0 0 0px;
+}
+.card:hover::after {
+    opacity: 0;
+}
+.threeD {
+    position: relative;
+    z-index: 100;
+    width:330px;
+    transition: .3s;
+    transform: translateY(0);
+    top:40px;
+    opacity: 0;
+}
+.card:hover .threeD {
+    opacity: 1;
+    transform: translateY(-25%) scale(1.1);
+}
+.card h2 {
+    position: absolute;
+    width: 80%;
+    bottom: 10px;
+    left: 70%;
+    transform: translateX(-70%);
+    color:#ef3232;
+    background: #000;
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 10px;
+    transition: .3s;
+    opacity: 0;
+}
+.card:hover h2 {
+    opacity: 1;
+    bottom:30px;
+}
